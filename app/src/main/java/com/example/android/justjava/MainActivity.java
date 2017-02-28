@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         String TotalPrice = NumberFormat.getCurrencyInstance().format(rawPrice);
 //        Log.v("MainActicity","The price is: " + priceInfo);
         String info = "Quantity: " + this.numOfCoffee;
-        info += "\nHas whipped cream: " + Boolean.toString(this.hasWhippedCream);
+        info += "\nAdd whipped cream: " + this.hasWhippedCream;
         info += "\nTotal: " + TotalPrice;
         info += "\nThank you!";
         priceTextView.setText(info);
