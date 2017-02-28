@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -10,6 +11,8 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
     private int numOfCoffee = 0;
     private int priceOfCoffee = 2;
+    private int priceOfWhippedCream = 1;
+    private boolean hasWhippedCream = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayPrice(this.numOfCoffee * this.priceOfCoffee);
+        int finalPrice = this.calculatePrice();
+        this.displayPrice(finalPrice);
     }
 
     /**
@@ -38,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         if (this.numOfCoffee != 0) {
             modifyNumOfCoffee(-1);
-            displayQuantity();
         }
+        displayQuantity();
     }
 
     /**
@@ -48,26 +52,39 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View view) {
         resetNumOfCoffee();
         displayQuantity();
-        displayPrice(0);
+        displayPrice(-1);
+    }
+
+    /**
+     * This method calculates the final price on the screen.
+     */
+    private int calculatePrice() {
+        // check if whippedCream is checked;
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        this.hasWhippedCream = whippedCreamCheckBox.isChecked();
+        int finalSinglePrice = this.priceOfCoffee
+                + (this.hasWhippedCream ? this.priceOfWhippedCream : 0);
+        return finalSinglePrice * this.numOfCoffee;
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
-        TextView quantityTextView = (TextView) findViewById(
-                R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
-        displayPrice(this.priceOfCoffee * number);
-    }
-
-    /**
-     * This method displays the given quantity value on the screen.
-     */
-    private void displayPrice(int number) {
+    private void displayPrice(int rawPrice) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        String priceInfo = NumberFormat.getCurrencyInstance().format(number);
-        String info = "Total: " + priceInfo + "\nThank you!";
+
+        // This info will show welcome info after reset button is clicked
+        if (rawPrice == -1) {
+            priceTextView.setText("$0");
+            return;
+        }
+
+        String TotalPrice = NumberFormat.getCurrencyInstance().format(rawPrice);
+//        Log.v("MainActicity","The price is: " + priceInfo);
+        String info = "Quantity: " + this.numOfCoffee;
+        info += "\nHas whipped cream: " + Boolean.toString(this.hasWhippedCream);
+        info += "\nTotal: " + TotalPrice;
+        info += "\nThank you!";
         priceTextView.setText(info);
     }
 
@@ -87,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method displays the given quantity value on the screen.
+     * This method displays the numOfCoffee on the screen.
      */
     private void displayQuantity() {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
@@ -95,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method displays the given text on the screen.
+     * This method displays the given text on the Total price section.
      */
     private void displayMessage(String message) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
