@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         float finalPrice = this.calculatePrice();
         String submitOrder = this.createOrderSummary(finalPrice);
         displayMessage(submitOrder);
-        sendMessageAsEmail(submitOrder);
+        if (this.numOfCoffee > 0) {
+            sendMessageAsEmail(submitOrder);
+        }
     }
 
     /**
@@ -175,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         if (this.hasWhippedCream) {
             whippedCreamCheckBox.toggle();
-            this.hasWhippedCream =false;
+            this.hasWhippedCream = false;
         }
     }
 

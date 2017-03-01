@@ -25,11 +25,8 @@
             android:inputType="textCapWords" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/toppings"
-            android:textAllCaps="true" />
+            style="@style/HeaderTextStyle"
+            android:text="@string/toppings" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,11 +56,8 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/quantity"
-            android:textAllCaps="true" />
+            style="@style/HeaderTextStyle"
+            android:text="@string/quantity"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,11 +103,8 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/order_summary"
-            android:textAllCaps="true" />
+            style="@style/HeaderTextStyle"
+            android:text="@string/order_summary"/>
 
         <TextView
             android:id="@+id/price_text_view"
