@@ -112,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="price"
+            android:text="order summary"
             android:textAllCaps="true" />
 
         <TextView
@@ -129,5 +129,6 @@
             android:onClick="submitOrder"
             android:text="order"
             android:textAllCaps="true" />
+
     </LinearLayout>
 </ScrollView>
