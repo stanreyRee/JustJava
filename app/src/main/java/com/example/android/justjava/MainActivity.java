@@ -78,9 +78,12 @@ public class MainActivity extends AppCompatActivity {
         this.resetChocolateCheckBox();
         this.resetWhippedCreamCheckBox();
 
-        // reset Coffee information along with the display message
+        // reset Coffee quantity
         resetNumOfCoffee();
         displayQuantity();
+
+        // reset Order summary
+        resetOrderSummary();
     }
 
     /**
@@ -115,17 +118,17 @@ public class MainActivity extends AppCompatActivity {
 
         // This info will show initial price information when total price is 0.
         if (Float.compare(rawPrice, -1.0f) == 0 || Float.compare(rawPrice, 0.0f) == 0) {
-            return "$0";
+            return "";
         }
 
         String TotalPrice = NumberFormat.getCurrencyInstance().format(rawPrice);
 //        Log.v("MainActicity","The price is: " + priceInfo);
-        String info = "Name: " + this.userName;
-        info += "\nQuantity: " + this.numOfCoffee;
-        info += "\nAdd whipped cream: " + this.hasWhippedCream;
-        info += "\nAdd chocolate: " + this.hasChocolate;
-        info += "\nTotal: " + TotalPrice;
-        info += "\nThank you!";
+        String info = getResources().getString(R.string.order_summary_name, this.userName);
+        info += "\n" + getResources().getString(R.string.order_summary_quantity, this.numOfCoffee);
+        info += "\n" + getResources().getString(R.string.order_summary_whipped_cream, this.hasWhippedCream);
+        info += "\n" + getResources().getString(R.string.order_summary_chocolate, this.hasChocolate);
+        info += "\n" + getResources().getString(R.string.order_summary_total, TotalPrice);
+        info += "\n" + getResources().getString(R.string.thank_you);
         return info;
     }
 
@@ -172,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         if (this.hasWhippedCream) {
             whippedCreamCheckBox.toggle();
+            this.hasWhippedCream =false;
         }
     }
 
@@ -182,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
         if (this.hasChocolate) {
             chocolateCheckBox.toggle();
+            this.hasChocolate = false;
         }
     }
 
@@ -203,6 +208,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * This method resets Order Summary info.
+     */
+    private void resetOrderSummary() {
+        TextView quantityTextView = (TextView) findViewById(R.id.price_text_view);
+        quantityTextView.setText("");
+    }
+
+    /**
      * This method sends the given message as an email.
      *
      * @param message is the message to be sent
@@ -210,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessageAsEmail(String message) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order for " + this.userName);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.order_summary_name, this.userName));
         intent.putExtra(Intent.EXTRA_TEXT, message);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
