@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         this.getUserName();
         float finalPrice = this.calculatePrice();
         String submitOrder = this.createOrderSummary(finalPrice);
+        displayMessage(submitOrder);
         sendMessageAsEmail(submitOrder);
     }
 
