@@ -7,65 +7,65 @@
     <string name="user_name">姓名</string>
 
     <!-- Hint text display in the empty field for the toppings [CHAR LIMIT=20] -->
-    <string name="toppings">顶料</string>
+    <string name="toppings">頂料</string>
 
     <!-- Hint text display in the empty field for the whipped cream [CHAR LIMIT=20] -->
-    <string name="whipped_cream">鲜奶油</string>
+    <string name="whipped_cream">鮮奶油</string>
 
     <!-- Hint text display in the empty field for the chocolate [CHAR LIMIT=20] -->
-    <string name="chocolate">巧克力</string>
+    <string name="chocolate">朱古力</string>
 
     <!-- Hint text display in the empty field for the quantity [CHAR LIMIT=20] -->
-    <string name="quantity">数量</string>
+    <string name="quantity">數量</string>
 
     <!-- Reset button -->
     <string name="reset">重置</string>
 
     <!-- Hint text display in the empty field for the order summary [CHAR LIMIT=20] -->
-    <string name="order_summary">订单详情</string>
+    <string name="order_summary">訂單詳情</string>
 
     <!-- Hint text display in the empty field for the order [CHAR LIMIT=20] -->
-    <string name="order">购买</string>
+    <string name="order">購買</string>
 
     <!--
      Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the
      user's name. [CHAR LIMIT=NONE]
    -->
-    <string name="order_summary_name">客户：<xliff:g example="Amy" id="name">%s</xliff:g></string>
+    <string name="order_summary_name">客戶：<xliff:g example="Amy" id="name">%s</xliff:g></string>
 
     <!--
       Whipped cream topping for the order summary. It will be shown in the format of
       "Add whipped cream? true" or "Add whipped cream? false". [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_whipped_cream">是否添加鲜奶油？ <xliff:g example="true" id="addWhippedCream">%b</xliff:g></string>
+    <string name="order_summary_whipped_cream">是否添加鮮奶油？ <xliff:g example="true" id="addWhippedCream">%b</xliff:g></string>
 
     <!--
       Chocolate topping for the order summary. It will be shown in the format of
       "Add chocolate? true" or "Add chocolate? false". [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_chocolate">是否添加巧克力？ <xliff:g example="true" id="addChocolate">%b</xliff:g></string>
+    <string name="order_summary_chocolate">是否添加朱古力？ <xliff:g example="true" id="addChocolate">%b</xliff:g></string>
 
     <!--
       Quantity of coffee cups for the order summary. It will be shown in the format of
       "Quantity: 2", where 2 is the number of cups ordered. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_quantity">数量：<xliff:g example="2" id="quantity">%d</xliff:g></string>
+    <string name="order_summary_quantity">數量：<xliff:g example="2" id="quantity">%d</xliff:g></string>
 
     <!--
       Total price for the order summary. It will be shown in the format of
       "Total: $10" where $10 is the price. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_total">总计：<xliff:g example="$10" id="price">%s</xliff:g></string>
+    <string name="order_summary_total">總計：<xliff:g example="$10" id="price">%s</xliff:g></string>
 
     <!-- Thank you message for the order summary. [CHAR LIMIT=NONE] -->
-    <string name="thank_you">多谢惠顾！</string>
+    <string name="thank_you">多謝惠顧！</string>
 
     <!--
       Subject line for the order summary email. It will be in the format of
       "Just Java order for Amy" where Amy is the user's name. [CHAR LIMIT=NONE]
     -->
-    <string name="order_summary_email_subject">Just Java订单 -- 客户： <xliff:g example="Amy" id="name">%s</xliff:g></string>
-    <string name="decrement_warning">您不得购买少于0杯咖啡</string>
-    <string name="increment_warning">您不得购买多于100杯咖啡</string>
+    <string name="order_summary_email_subject">Just Java訂單 -- 客戶： <xliff:g example="Amy" id="name">%s</xliff:g></string>
+    <string name="decrement_warning">您不得購買少於0杯咖啡</string>
+    <string name="increment_warning">您不得購買多於100杯咖啡</string>
 
 </resources>
